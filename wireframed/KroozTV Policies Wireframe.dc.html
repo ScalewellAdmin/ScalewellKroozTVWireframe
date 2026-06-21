@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+</style>
+<script>
+(function(){
+  if (window.__wfTopInit) return; window.__wfTopInit = true;
+  function init(){
+    if (document.getElementById('wf-top')) return;
+    var b=document.createElement('button'); b.id='wf-top'; b.textContent='\u2191 Top';
+    b.setAttribute('style','position:fixed;right:22px;bottom:22px;z-index:300;border:2px solid #222;background:#FF6A2C;color:#fff;font-family:Caveat,cursive;font-weight:700;font-size:18px;padding:10px 16px;border-radius:24px;cursor:pointer;box-shadow:3px 3px 0 rgba(34,34,34,.3);opacity:0;pointer-events:none;transition:opacity .25s;');
+    b.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};
+    document.body.appendChild(b);
+    var upd=function(){var y=window.scrollY||document.documentElement.scrollTop||0; b.style.opacity=y>300?'1':'0'; b.style.pointerEvents=y>300?'auto':'none';};
+    window.addEventListener('scroll',upd,{passive:true}); document.addEventListener('scroll',upd,{passive:true}); upd();
+  }
+  if (document.body) init(); else window.addEventListener('DOMContentLoaded', init);
+})();
+(function(){
+  if (window.__wfRevealInit) return; window.__wfRevealInit = true;
+  function setup(){
+    var st=document.createElement('style');
+    st.textContent='.wf-reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);} .wf-reveal.wf-in{opacity:1;transform:none;}';
+    document.head.appendChild(st);
+    var els=[];
+    function frames(){
+      var out=[];
+      [].slice.call(document.querySelectorAll('div')).forEach(function(d){
+        var cs=getComputedStyle(d);
+        if((cs.boxShadow||'').indexOf('7px 9px')>-1) out.push(d);
+        else if(cs.borderTopWidth==='7px' && cs.borderTopStyle==='solid' && cs.borderRadius!=='0px') out.push(d);
+      });
+      return out;
+    }
+    function check(){
+      var vh=window.innerHeight||document.documentElement.clientHeight;
+      for(var i=0;i<els.length;i++){ var el=els[i]; if(el.__in) continue; var r=el.getBoundingClientRect(); if(r.height>0 && r.top<vh*0.90 && r.bottom>0){ el.__in=true; el.classList.add('wf-in'); } }
+    }
+    function scan(){
+      frames().forEach(function(fr){
+        [].slice.call(fr.children).forEach(function(ch){
+          if(ch.nodeType!==1 || ch.__wfr) return;
+          if(ch.offsetHeight && ch.offsetHeight<40) return;
+          ch.__wfr=true; ch.classList.add('wf-reveal'); els.push(ch);
+        });
+      });
+      check();
+    }
+    function onScroll(){ check(); }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    document.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+    scan();
+    [120,400,900,1600].forEach(function(ms){ setTimeout(check,ms); });
+    var t; var mo=new MutationObserver(function(){ clearTimeout(t); t=setTimeout(function(){ scan(); check(); },90); });
+    mo.observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.body) setup(); else window.addEventListener('DOMContentLoaded',setup);
+})();
+</script>
+</helmet>
+
+<div style="min-height:100vh;background:#eceae2;font-family:'Patrick Hand',sans-serif;color:#222;">
+
+  <!-- TOP BAR -->
+  <div style="position:sticky;top:0;z-index:50;background:#f6f4ee;border-bottom:2px solid #222;padding:12px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+    <div style="display:flex;flex-direction:column;line-height:1;">
+      <span style="font-family:'Caveat',cursive;font-weight:700;font-size:26px;">Policies — Wireframe</span>
+      <span style="font-size:13px;color:#777;margin-top:2px;">Low-fi · real KroozTV policy content · blue notes = quick things to confirm</span>
+    </div>
+    <div style="flex:1;"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button onClick="{{ setPrivacy }}" style="{{ sPrivacy }}">Privacy</button>
+      <button onClick="{{ setTerms }}" style="{{ sTerms }}">Terms</button>
+      <button onClick="{{ setCancel }}" style="{{ sCancel }}">Cancellation</button>
+      <button onClick="{{ setDmca }}" style="{{ sDmca }}">DMCA</button>
+    </div>
+  </div>
+
+  <div style="padding:30px 22px 80px;display:flex;flex-direction:column;align-items:center;">
+    <div style="font-family:'Caveat',cursive;font-size:24px;color:#666;margin-bottom:14px;">↓ legal document template · 1180px desktop</div>
+
+    <div style="width:1180px;max-width:100%;background:#fff;border:2px solid #222;border-radius:14px;overflow:hidden;box-shadow:7px 9px 0 rgba(34,34,34,.13);">
+      <div style="height:34px;background:#e9e7df;border-bottom:2px solid #222;display:flex;align-items:center;gap:7px;padding:0 14px;"><span style="width:11px;height:11px;border-radius:50%;background:#ccc;border:1.5px solid #888;"></span><span style="width:11px;height:11px;border-radius:50%;background:#ccc;border:1.5px solid #888;"></span><span style="width:11px;height:11px;border-radius:50%;background:#ccc;border:1.5px solid #888;"></span><span style="margin-left:14px;font-size:13px;color:#888;">krooztv.net{{ slug }}</span></div>
+
+      <!-- NAV -->
+      <div style="display:flex;align-items:center;gap:14px;padding:16px 30px;border-bottom:1.5px dashed #bbb;">
+        <div style="display:inline-flex;flex-direction:column;align-items:stretch;"><div style="display:flex;gap:3px;margin:0 0 2px 9px;"><span style="width:4px;height:4px;border-radius:50%;background:#222;"></span><span style="width:4px;height:4px;border-radius:50%;background:#222;"></span></div><div style="border:2.5px solid #222;border-radius:8px;padding:3px 9px 4px;"><span style="font-family:'Caveat',cursive;font-weight:700;font-size:22px;line-height:1;">KROOZ<span style="color:#FF6A2C;">TV</span></span></div><div style="text-align:center;font-size:8px;font-weight:700;letter-spacing:.28em;color:#222;margin-top:2px;white-space:nowrap;">TOP RATED IPTV</div></div>
+        <div style="flex:1;display:flex;gap:13px;justify-content:center;color:#888;font-size:14px;flex-wrap:wrap;"><span>Home</span><span>Free Trial</span><span>Subscription</span><span>Tutorial</span><span>Reseller</span><span>Affiliate</span><span>About</span><span>Contact</span></div>
+        <div style="border:2px solid #222;border-radius:20px;padding:7px 14px;font-size:14px;color:#888;">Client Area</div>
+      </div>
+
+      <!-- DOC HEADER -->
+      <div style="position:relative;overflow:hidden;padding:38px 30px 30px;border-bottom:1.5px dashed #bbb;background:#FFF6F1;">
+        <div style="position:absolute;top:-80px;right:-50px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#FFE0CC,transparent 70%);"></div>
+        <div style="position:relative;">
+          <div style="display:inline-flex;align-items:center;gap:8px;border:2px solid #FF6A2C;color:#F2540B;border-radius:14px;padding:5px 12px;font-size:14px;margin-bottom:12px;">📄 Legal</div>
+          <div style="font-family:'Caveat',cursive;font-weight:700;font-size:40px;line-height:1.05;">{{ title }}</div>
+          <div style="color:#888;font-size:14px;margin-top:8px;">Last updated: {{ updated }}</div>
+          <div style="color:#555;font-size:15px;max-width:760px;margin-top:12px;line-height:1.55;">{{ intro }}</div>
+          <sc-if value="{{ note }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top:14px;border:2px dashed #2563EB;border-radius:10px;background:#EEF3FF;color:#2563EB;font-size:13px;padding:10px 14px;max-width:760px;">✎ {{ note }}</div>
+          </sc-if>
+        </div>
+      </div>
+
+      <!-- BODY: TOC + SECTIONS -->
+      <div style="padding:34px 30px;display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:start;">
+        <!-- TOC -->
+        <div style="position:sticky;top:80px;border:2px solid #222;border-radius:12px;padding:18px;background:#fff;">
+          <div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;margin-bottom:12px;">On this page</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ toc }}" as="t" hint-placeholder-count="7">
+              <div style="display:flex;gap:9px;font-size:14px;color:#555;"><span style="color:#FF6A2C;font-weight:700;">{{ t.n }}</span>{{ t.title }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <!-- SECTIONS -->
+        <div style="display:flex;flex-direction:column;gap:26px;">
+          <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="7">
+            <div>
+              <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px;">
+                <span style="font-family:'Caveat',cursive;font-size:22px;font-weight:700;color:#FF6A2C;">{{ sec.n }}</span>
+                <span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;">{{ sec.title }}</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <sc-for list="{{ sec.body }}" as="para" hint-placeholder-count="2">
+                  <div style="color:#555;font-size:15px;line-height:1.6;">{{ para }}</div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+
+          <!-- contact strip -->
+          <div style="border:2px solid #222;border-radius:12px;background:#f3f1ea;padding:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+            <span style="width:46px;height:46px;border-radius:50%;border:2px solid #FF6A2C;display:flex;align-items:center;justify-content:center;font-size:22px;">💬</span>
+            <div style="flex:1;min-width:200px;"><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Questions about this policy?</div><div style="color:#888;font-size:14px;">Reach us anytime — krooztv@krooztv.com or 24/7 live chat.</div></div>
+            <div style="border:2px solid #F2540B;background:#FF6A2C;color:#fff;border-radius:24px;padding:11px 22px;font-size:15px;">Contact us</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div style="background:#1a1a1a;color:#cfcfd6;padding:40px 30px 26px;">
+        <div style="display:flex;justify-content:center;margin-bottom:22px;">
+          <div style="display:inline-flex;flex-direction:column;align-items:stretch;">
+            <div style="display:flex;gap:4px;margin:0 0 3px 12px;"><span style="width:5px;height:5px;border-radius:50%;background:#fff;"></span><span style="width:5px;height:5px;border-radius:50%;background:#fff;"></span></div>
+            <div style="border:3px solid #fff;border-radius:12px;padding:5px 15px 6px;"><span style="font-family:'Caveat',cursive;font-weight:700;font-size:30px;line-height:1;color:#fff;">KROOZ<span style="color:#FF6A2C;">TV</span></span></div>
+            <div style="display:flex;justify-content:center;gap:38px;margin-top:-1px;"><span style="width:10px;height:6px;background:#fff;border-radius:0 0 3px 3px;"></span><span style="width:10px;height:6px;background:#fff;border-radius:0 0 3px 3px;"></span></div>
+            <div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:.3em;color:#fff;margin-top:3px;">TOP RATED IPTV</div>
+          </div>
+        </div>
+        <div style="height:1.5px;background:#3a3a42;margin-bottom:28px;"></div>
+        <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px;max-width:1000px;margin:0 auto;font-size:15px;color:#9A9AA2;">
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;"><span style="width:46px;height:46px;border-radius:50%;border:2px solid #FF6A2C;display:flex;align-items:center;justify-content:center;font-size:22px;">🎧</span><span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:#fff;">Call us 24/7</span></div>
+            <div style="font-weight:700;color:#fff;margin-bottom:6px;">Address <span style="color:#FF6A2C;">info</span></div>
+            <div style="line-height:1.5;">362 Ridgewood Dr, Soldotna,<br>Alaska 99669, USA</div>
+          </div>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:16px;">Information</div>
+            <div style="margin-bottom:11px;">Home</div><div style="margin-bottom:11px;">Reseller IPTV</div><div style="margin-bottom:11px;">IPTV Subscription</div><div style="margin-bottom:11px;">About Us</div><div style="margin-bottom:11px;">Contact Us</div><div style="margin-bottom:11px;">Free IPTV Trial</div>
+          </div>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:16px;">Importants</div>
+            <div style="margin-bottom:11px;">Privacy Policy</div><div style="margin-bottom:11px;">Terms of Service</div><div style="margin-bottom:11px;">Cancellation Policy</div><div style="margin-bottom:11px;">Krooz TV Official</div><div style="margin-bottom:11px;">Installation Tutorial</div><div style="margin-bottom:11px;">IPTV Affiliate Program</div><div style="margin-bottom:11px;">DMCA Policy</div>
+          </div>
+        </div>
+        <div style="text-align:center;color:#71717a;font-size:13px;margin-top:30px;border-top:1px solid #2a2a30;padding-top:18px;max-width:1000px;margin-left:auto;margin-right:auto;">© 2026 KroozTV · Premium IPTV streaming worldwide · 24/7 live chat support</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { policy: 'privacy' };
+
+  data() {
+    return {
+      privacy: {
+        slug: '/privacy-policy',
+        title: 'Privacy Policy',
+        updated: 'January 1, 2025',
+        intro: 'At KroozTV we value your privacy as much as your entertainment. This policy explains how we collect, use, and protect your personal data while using our IPTV services and website. By using KroozTV, you agree to the practices described below.',
+        note: 'Quick one for you: which tools touch customer data (payments, support, analytics), and what email should people use for privacy questions?',
+        sections: [
+          { n: '01', title: 'Information We Collect', body: ['Account details you provide when subscribing or starting a free trial — name, email, and billing information handled through our checkout.', 'Technical details needed to activate service, such as your device type or MAC address, plus basic usage and cookie data.'] },
+          { n: '02', title: 'Cookies', body: ['Our site uses cookies to enhance your experience, analyze traffic, and personalize offers.', 'You can manage or disable cookies in your browser settings, though some features like account login or free-trial activation may be affected.'] },
+          { n: '03', title: 'How We Use Your Data', body: ['To deliver and activate your subscription, provide customer support, process secure payments, and send service updates you have opted into.'] },
+          { n: '04', title: 'Sharing & Third Parties', body: ['We share limited information only with trusted providers who help us operate — payment gateways for secure transactions and technical support for setup.', 'All partners comply with GDPR and CCPA. We do not sell your data or share it for advertising.'] },
+          { n: '05', title: 'Data Retention', body: ['We keep your data only as long as needed to provide the service or meet legal obligations.', 'When your subscription ends, your personal data is deleted within 30 days unless the law requires otherwise.'] },
+          { n: '06', title: 'Your Rights', body: ['You can request a copy of your stored data, ask us to delete it after your subscription ends, and opt out of promotional messages at any time.'] },
+          { n: '07', title: 'International Compliance', body: ['Whether you are in the UK, USA, or anywhere worldwide, KroozTV complies with international privacy standards including GDPR (Europe) and CCPA (California).'] },
+          { n: '08', title: 'Updates & Contact', body: ['We may update this policy to reflect new features, laws, or improvements. Questions? Email krooztv@krooztv.com.'] },
+        ],
+      },
+      terms: {
+        slug: '/terms-of-service',
+        title: 'Terms of Service',
+        updated: 'January 1, 2025',
+        intro: 'These terms govern your use of KroozTV. By subscribing to or using our service and website, you agree to the terms below.',
+        note: 'Have your lawyer glance at this one \u2014 mainly which country/state\u2019s law applies, and whether you want disputes handled by arbitration.',
+        sections: [
+          { n: '01', title: 'The Service', body: ['KroozTV provides access to a large directory of IPTV channels and on-demand content streamed over the internet. A compatible device and stable connection are required.'] },
+          { n: '02', title: 'Accounts & Payment', body: ['Payments are processed through our secure checkout. Subscriptions are delivered by email immediately after payment is confirmed.', 'Multi-connection plans allow streaming on up to 5 devices at the same time, depending on the plan chosen.'] },
+          { n: '03', title: 'Acceptable Use', body: ['Your subscription is for personal use. Reselling is only permitted through our official Reseller program.', 'You may not use the service for any unlawful purpose or to redistribute streams without authorization.'] },
+          { n: '04', title: 'Content Disclaimer', body: ['KroozTV functions as an aggregator and index. We do not host any videos, streams, or files on our servers. All listed streams are freely available online.'] },
+          { n: '05', title: 'Free Trial', body: ['A 24-hour free trial is available so you can test the service before subscribing. One trial per customer.'] },
+          { n: '06', title: 'Limitation of Liability', body: ['The service is provided "as is". KroozTV is not liable for third-party content, temporary interruptions, or issues outside our reasonable control.'] },
+          { n: '07', title: 'Changes to These Terms', body: ['We may update these terms from time to time. Continued use of the service after changes constitutes acceptance.'] },
+          { n: '08', title: 'Contact', body: ['For any questions about these terms, contact krooztv@krooztv.com or our 24/7 live chat.'] },
+        ],
+      },
+      cancellation: {
+        slug: '/cancellation-policy',
+        title: 'Cancellation & Refund Policy',
+        updated: 'January 1, 2025',
+        intro: 'We want you to be happy with KroozTV. This policy explains how cancellations and refunds work.',
+        note: 'What\u2019s your actual refund window \u2014 7 days, 14? And anything that\u2019s non-refundable? Your site just says you\u2019ll refund if it\u2019s not a good fit, so let me know the real terms.',
+        sections: [
+          { n: '01', title: 'Satisfaction Guarantee', body: ['If you feel our service is not a good fit, contact us and we will work with you toward a resolution, including a full refund where eligible.'] },
+          { n: '02', title: 'How to Request a Refund', body: ['Reach out via 24/7 live chat or email krooztv@krooztv.com with your order details. Our team will review and respond promptly.'] },
+          { n: '03', title: 'Eligibility', body: ['Refunds apply to new subscriptions reported within the stated window. Reseller credits and used promotional offers may be non-refundable.', 'We recommend using the free 24-hour trial first to confirm compatibility with your device.'] },
+          { n: '04', title: 'Cancelling Your Subscription', body: ['You can cancel auto-renewal at any time from your client area or by contacting support. Access continues until the end of your paid period.'] },
+          { n: '05', title: 'Processing Time', body: ['Approved refunds are returned to your original payment method, typically within a few business days depending on your provider.'] },
+        ],
+      },
+      dmca: {
+        slug: '/dmca-policy',
+        title: 'DMCA Takedown Policy',
+        updated: 'January 1, 2025',
+        intro: 'KroozTV respects intellectual property rights. Please read this carefully before submitting a notice.',
+        note: '',
+        sections: [
+          { n: '01', title: 'We Host Nothing', body: ['KroozTV does not host any content whatsoever — no videos, streams, or files are stored on our servers.', 'KroozTV is only a directory and index. All IPTV streams listed or linked are freely available online; we function as an aggregator, nothing more.'] },
+          { n: '02', title: 'Filing a Takedown Notice', body: ['If you believe content accessible through KroozTV infringes your copyright, you may submit a DMCA Takedown Notice.', 'Note: your notice must go to the actual hosting provider of the content — not to us — since we host nothing.'] },
+          { n: '03', title: 'Notice Requirements', body: ['Your name, mailing address, phone number, and email.', 'A detailed description of the copyrighted work and the exact URLs you believe are infringing.', 'A good-faith statement, a statement of accuracy under penalty of perjury, and your physical or electronic signature.'] },
+          { n: '04', title: 'Where to Send It', body: ['Email krooztv@krooztv.com with the subject line "DMCA Takedown Request — [Your Company Name]".'] },
+          { n: '05', title: 'Counter-Notification', body: ['If you believe your content was wrongly removed due to a false claim, you may submit a counter-notification.'] },
+          { n: '06', title: 'Abuse of This Process', body: ['We block and ban repeat abusers of our DMCA process, including those who attempt fraudulent or abusive takedown notices.'] },
+        ],
+      },
+    };
+  }
+
+  renderVals() {
+    const all = this.data();
+    const cur = all[this.state.policy] || all.privacy;
+    const set = (p) => () => { this.setState({ policy: p }); try { window.scrollTo(0, 0); } catch (e) {} };
+    const base = { padding: '9px 16px', border: '2px solid #222', background: '#fff', fontFamily: "'Caveat', cursive", fontWeight: 700, fontSize: '17px', cursor: 'pointer', borderRadius: '9px', color: '#222', lineHeight: 1, whiteSpace: 'nowrap' };
+    const active = Object.assign({}, base, { background: '#222', color: '#fff' });
+    const sty = (p) => (this.state.policy === p ? active : base);
+    const toc = cur.sections.map((s) => ({ n: s.n, title: s.title }));
+    return {
+      setPrivacy: set('privacy'), setTerms: set('terms'), setCancel: set('cancellation'), setDmca: set('dmca'),
+      sPrivacy: sty('privacy'), sTerms: sty('terms'), sCancel: sty('cancellation'), sDmca: sty('dmca'),
+      slug: cur.slug, title: cur.title, updated: cur.updated, intro: cur.intro, note: cur.note,
+      toc, sections: cur.sections,
+    };
+  }
+}
+</script>
+</body>
+</html>

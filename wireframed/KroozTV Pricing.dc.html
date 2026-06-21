@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #F6F6F7; }
+  select:focus { outline: none; border-color: #FF6A2C !important; box-shadow: 0 0 0 3px rgba(255,106,44,0.16); }
+  .cta:hover { background-position: 0% 0 !important; }
+  .cta-feat:hover { box-shadow: 0 10px 26px rgba(255,106,44,0.5) !important; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#F6F6F7;color:#14141A;font-family:'Satoshi',sans-serif;padding:64px 40px 80px;">
+  <div style="max-width:1240px;margin:0 auto;">
+
+    <!-- header -->
+    <div style="text-align:center;max-width:640px;margin:0 auto 44px;">
+      <div style="display:inline-flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#F2540B;font-weight:700;margin-bottom:18px;"><span style="width:24px;height:2px;background:#FF6A2C;"></span>Pricing<span style="width:24px;height:2px;background:#FF6A2C;"></span></div>
+      <h2 style="font-family:'Clash Display',sans-serif;font-weight:600;font-size:46px;line-height:1.05;letter-spacing:-0.02em;margin:0;">One subscription.<br>Every screen.</h2>
+      <p style="color:#71717A;font-size:18px;line-height:1.5;margin:16px 0 0;">Pick your term, choose how many devices stream at once. Longer terms save more — up to 53%.</p>
+    </div>
+
+    <!-- cards -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch;">
+
+      <!-- CARD 0 · 1 month -->
+      <div style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #E6E6EA;border-radius:20px;padding:26px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+        <div style="display:flex;align-items:center;justify-content:space-between;min-height:24px;">
+          <span style="font-family:'Clash Display',sans-serif;font-weight:600;font-size:20px;">1 Month</span>
+          <span style="color:#A1A1AA;font-size:12px;">Flexible</span>
+        </div>
+        <p style="color:#71717A;font-size:13.5px;line-height:1.5;margin:10px 0 0;min-height:60px;">Month-to-month flexibility. Try everything KroozTV offers with no long-term commitment.</p>
+        <div style="display:flex;align-items:baseline;gap:5px;margin:6px 0 2px;"><span style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:46px;line-height:1;">{{ p0 }}</span><span style="color:#A1A1AA;font-size:15px;">/ mo</span></div>
+        <div style="color:#71717A;font-size:14px;">Billed monthly</div>
+        <div style="height:1px;background:#ECECEF;margin:20px 0;"></div>
+        <label style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#A1A1AA;font-weight:700;">Connections</label>
+        <div style="position:relative;margin-top:8px;">
+          <select value="{{ v0 }}" onChange="{{ onSel0 }}" style="appearance:none;-webkit-appearance:none;width:100%;background:#F6F6F7;border:1px solid #E6E6EA;border-radius:12px;padding:13px 40px 13px 14px;font-family:'Satoshi',sans-serif;font-weight:500;font-size:15px;color:#14141A;cursor:pointer;">
+            <option value="1">1 Connection</option>
+            <option value="2">2 Connections</option>
+            <option value="3">3 Connections</option>
+            <option value="4">4 Connections</option>
+            <option value="5">5 Connections</option>
+          </select>
+          <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);width:0;height:0;border-style:solid;border-width:6px 5px 0 5px;border-color:#71717A transparent transparent transparent;pointer-events:none;"></div>
+        </div>
+        <div style="color:#71717A;font-size:13.5px;margin-top:12px;display:flex;align-items:center;gap:7px;"><span style="color:#FF6A2C;">▶</span>Stream on up to {{ scr0 }} at once</div>
+        <div style="height:1px;background:#ECECEF;margin:20px 0 16px;"></div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>30,000+ Live IPTV Channels</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>50,000+ VOD &amp; TV Shows</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Without freezing</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>99.99% uptime</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Works on all devices</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>4K / FHD / HD / SD quality</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Available worldwide</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>24/7 support</div>
+        </div>
+        <div style="flex:1;"></div>
+        <a href="{{ h0 }}" class="cta" style="display:block;text-align:center;background-image:linear-gradient(to right,#F2540B 50%,#14141A 50%);background-size:200% 100%;background-position:100% 0;transition:background-position .42s ease;color:#FFFFFF;font-weight:700;padding:14px;border-radius:28px;text-decoration:none;margin-top:22px;cursor:pointer;">Get Started →</a>
+        <div style="text-align:center;color:#A1A1AA;font-size:12px;margin-top:12px;">Instant activation</div>
+      </div>
+
+      <!-- CARD 1 · 3 month -->
+      <div style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #E6E6EA;border-radius:20px;padding:26px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+        <div style="display:flex;align-items:center;justify-content:space-between;min-height:24px;">
+          <span style="font-family:'Clash Display',sans-serif;font-weight:600;font-size:20px;">3 Months</span>
+          <span style="background:#FFE8DA;color:#C2410C;font-weight:700;font-size:12px;padding:4px 10px;border-radius:14px;">SAVE {{ s1 }}%</span>
+        </div>
+        <p style="color:#71717A;font-size:13.5px;line-height:1.5;margin:10px 0 0;min-height:60px;">A full season of premium streaming at a lower monthly rate than going month-to-month.</p>
+        <div style="display:flex;align-items:baseline;gap:5px;margin:6px 0 2px;"><span style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:46px;line-height:1;">{{ p1 }}</span><span style="color:#A1A1AA;font-size:15px;">/ 3 mo</span></div>
+        <div style="color:#71717A;font-size:14px;">{{ m1 }} / month</div>
+        <div style="height:1px;background:#ECECEF;margin:20px 0;"></div>
+        <label style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#A1A1AA;font-weight:700;">Connections</label>
+        <div style="position:relative;margin-top:8px;">
+          <select value="{{ v1 }}" onChange="{{ onSel1 }}" style="appearance:none;-webkit-appearance:none;width:100%;background:#F6F6F7;border:1px solid #E6E6EA;border-radius:12px;padding:13px 40px 13px 14px;font-family:'Satoshi',sans-serif;font-weight:500;font-size:15px;color:#14141A;cursor:pointer;">
+            <option value="1">1 Connection</option>
+            <option value="2">2 Connections</option>
+            <option value="3">3 Connections</option>
+            <option value="4">4 Connections</option>
+            <option value="5">5 Connections</option>
+          </select>
+          <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);width:0;height:0;border-style:solid;border-width:6px 5px 0 5px;border-color:#71717A transparent transparent transparent;pointer-events:none;"></div>
+        </div>
+        <div style="color:#71717A;font-size:13.5px;margin-top:12px;display:flex;align-items:center;gap:7px;"><span style="color:#FF6A2C;">▶</span>Stream on up to {{ scr1 }} at once</div>
+        <div style="height:1px;background:#ECECEF;margin:20px 0 16px;"></div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>30,000+ Live IPTV Channels</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>50,000+ VOD &amp; TV Shows</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Without freezing</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>99.99% uptime</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Works on all devices</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>4K / FHD / HD / SD quality</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Available worldwide</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>24/7 support</div>
+        </div>
+        <div style="flex:1;"></div>
+        <a href="{{ h1 }}" class="cta" style="display:block;text-align:center;background-image:linear-gradient(to right,#F2540B 50%,#14141A 50%);background-size:200% 100%;background-position:100% 0;transition:background-position .42s ease;color:#FFFFFF;font-weight:700;padding:14px;border-radius:28px;text-decoration:none;margin-top:22px;cursor:pointer;">Get Started →</a>
+        <div style="text-align:center;color:#A1A1AA;font-size:12px;margin-top:12px;">Instant activation</div>
+      </div>
+
+      <!-- CARD 2 · 6 month · HERO / MOST POPULAR -->
+      <div style="display:flex;flex-direction:column;background:#FFFFFF;border:2px solid #FF6A2C;border-radius:20px;padding:26px;box-shadow:0 18px 44px rgba(255,106,44,0.2);position:relative;">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(140deg,#FF9159,#F2540B);color:#FFFFFF;font-weight:700;font-size:11px;letter-spacing:.06em;padding:5px 14px;border-radius:14px;white-space:nowrap;box-shadow:0 6px 16px rgba(255,106,44,0.4);">★ MOST POPULAR</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;min-height:24px;">
+          <span style="font-family:'Clash Display',sans-serif;font-weight:600;font-size:20px;">6 Months</span>
+          <span style="background:#FF6A2C;color:#FFFFFF;font-weight:700;font-size:12px;padding:4px 10px;border-radius:14px;">SAVE {{ s2 }}%</span>
+        </div>
+        <p style="color:#71717A;font-size:13.5px;line-height:1.5;margin:10px 0 0;min-height:60px;">The sweet spot our members love — big savings with the flexibility of a half-year term.</p>
+        <div style="display:flex;align-items:baseline;gap:5px;margin:6px 0 2px;"><span style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:48px;line-height:1;color:#14141A;">{{ p2 }}</span><span style="color:#A1A1AA;font-size:15px;">/ 6 mo</span></div>
+        <div style="color:#71717A;font-size:14px;">{{ m2 }} / month</div>
+        <div style="height:1px;background:#F4D9C9;margin:20px 0;"></div>
+        <label style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#A1A1AA;font-weight:700;">Connections</label>
+        <div style="position:relative;margin-top:8px;">
+          <select value="{{ v2 }}" onChange="{{ onSel2 }}" style="appearance:none;-webkit-appearance:none;width:100%;background:#FFF6F1;border:1px solid #FFD0B8;border-radius:12px;padding:13px 40px 13px 14px;font-family:'Satoshi',sans-serif;font-weight:500;font-size:15px;color:#14141A;cursor:pointer;">
+            <option value="1">1 Connection</option>
+            <option value="2">2 Connections</option>
+            <option value="3">3 Connections</option>
+            <option value="4">4 Connections</option>
+            <option value="5">5 Connections</option>
+          </select>
+          <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);width:0;height:0;border-style:solid;border-width:6px 5px 0 5px;border-color:#F2540B transparent transparent transparent;pointer-events:none;"></div>
+        </div>
+        <div style="color:#71717A;font-size:13.5px;margin-top:12px;display:flex;align-items:center;gap:7px;"><span style="color:#FF6A2C;">▶</span>Stream on up to {{ scr2 }} at once</div>
+        <div style="height:1px;background:#F4D9C9;margin:20px 0 16px;"></div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>30,000+ Live IPTV Channels</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>50,000+ VOD &amp; TV Shows</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Without freezing</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>99.99% uptime</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Works on all devices</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>4K / FHD / HD / SD quality</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Available worldwide</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>24/7 support</div>
+        </div>
+        <div style="flex:1;"></div>
+        <a href="{{ h2 }}" class="cta cta-feat" style="display:block;text-align:center;background-image:linear-gradient(to right,#14141A 50%,#F2540B 50%);background-size:200% 100%;background-position:100% 0;transition:background-position .42s ease,box-shadow .3s ease;color:#FFFFFF;font-weight:700;padding:14px;border-radius:28px;text-decoration:none;margin-top:22px;box-shadow:0 8px 22px rgba(255,106,44,0.35);cursor:pointer;">Get Started →</a>
+        <div style="text-align:center;color:#A1A1AA;font-size:12px;margin-top:12px;">Instant activation</div>
+      </div>
+
+      <!-- CARD 3 · 12 month -->
+      <div style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #E6E6EA;border-radius:20px;padding:26px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+        <div style="display:flex;align-items:center;justify-content:space-between;min-height:24px;">
+          <span style="font-family:'Clash Display',sans-serif;font-weight:600;font-size:20px;">12 Months</span>
+          <span style="background:#FFE8DA;color:#C2410C;font-weight:700;font-size:12px;padding:4px 10px;border-radius:14px;">SAVE {{ s3 }}%</span>
+        </div>
+        <p style="color:#71717A;font-size:13.5px;line-height:1.5;margin:10px 0 0;min-height:60px;">Maximum savings. Lock in the lowest monthly price for a full year of everything.</p>
+        <div style="display:flex;align-items:baseline;gap:5px;margin:6px 0 2px;"><span style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:46px;line-height:1;">{{ p3 }}</span><span style="color:#A1A1AA;font-size:15px;">/ yr</span></div>
+        <div style="color:#71717A;font-size:14px;">{{ m3 }} / month</div>
+        <div style="height:1px;background:#ECECEF;margin:20px 0;"></div>
+        <label style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#A1A1AA;font-weight:700;">Connections</label>
+        <div style="position:relative;margin-top:8px;">
+          <select value="{{ v3 }}" onChange="{{ onSel3 }}" style="appearance:none;-webkit-appearance:none;width:100%;background:#F6F6F7;border:1px solid #E6E6EA;border-radius:12px;padding:13px 40px 13px 14px;font-family:'Satoshi',sans-serif;font-weight:500;font-size:15px;color:#14141A;cursor:pointer;">
+            <option value="1">1 Connection</option>
+            <option value="2">2 Connections</option>
+            <option value="3">3 Connections</option>
+            <option value="4">4 Connections</option>
+            <option value="5">5 Connections</option>
+          </select>
+          <div style="position:absolute;right:15px;top:50%;transform:translateY(-50%);width:0;height:0;border-style:solid;border-width:6px 5px 0 5px;border-color:#71717A transparent transparent transparent;pointer-events:none;"></div>
+        </div>
+        <div style="color:#71717A;font-size:13.5px;margin-top:12px;display:flex;align-items:center;gap:7px;"><span style="color:#FF6A2C;">▶</span>Stream on up to {{ scr3 }} at once</div>
+        <div style="height:1px;background:#ECECEF;margin:20px 0 16px;"></div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>30,000+ Live IPTV Channels</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>50,000+ VOD &amp; TV Shows</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Without freezing</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>99.99% uptime</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Works on all devices</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>4K / FHD / HD / SD quality</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>Available worldwide</div>
+          <div style="display:flex;gap:9px;font-size:13.5px;color:#3F3F46;"><span style="color:#16A34A;flex:none;">✓</span>24/7 support</div>
+        </div>
+        <div style="flex:1;"></div>
+        <a href="{{ h3 }}" class="cta" style="display:block;text-align:center;background-image:linear-gradient(to right,#F2540B 50%,#14141A 50%);background-size:200% 100%;background-position:100% 0;transition:background-position .42s ease;color:#FFFFFF;font-weight:700;padding:14px;border-radius:28px;text-decoration:none;margin-top:22px;cursor:pointer;">Get Started →</a>
+        <div style="text-align:center;color:#A1A1AA;font-size:12px;margin-top:12px;">Instant activation</div>
+      </div>
+
+    </div>
+
+    <!-- footer reassurance -->
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:26px;margin-top:36px;color:#71717A;font-size:14.5px;">
+      <span style="display:flex;align-items:center;gap:8px;"><span style="color:#16A34A;">✓</span>Instant activation</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span style="color:#16A34A;">✓</span>Secure checkout</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span style="color:#16A34A;">✓</span>Works worldwide</span>
+      <span style="color:#A1A1AA;">·</span>
+      <span>Need more lines? <a href="https://krooztv.net/iptvreseller-panel-krooztv-provider-krooziptv-iptvreseller-2026/" style="color:#F2540B;font-weight:700;text-decoration:none;">Become a reseller →</a></span>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { conn: [1, 1, 1, 1] };
+  prices = [
+    [15, 22, 28, 35, 45],
+    [30, 40, 50, 60, 70],
+    [55, 65, 75, 85, 95],
+    [85, 100, 115, 125, 140],
+  ];
+  months = [1, 3, 6, 12];
+  durSlug = ['monthly-account', '3months-account', '6months-account', '12months-account'];
+
+  setConn(i, v) {
+    const conn = this.state.conn.slice();
+    conn[i] = v;
+    this.setState({ conn });
+  }
+
+  card(i) {
+    const c = this.state.conn[i];
+    const price = this.prices[i][c - 1];
+    const m = this.months[i];
+    const perMo = price / m;
+    const fullMonthly = this.prices[0][c - 1] * m;
+    const savePct = Math.round((1 - price / fullMonthly) * 100);
+    const href = 'https://krooztv.net/billing/store/' + this.durSlug[i] + '/' + c + 'connection-iptv';
+    return {
+      v: String(c),
+      p: '$' + price,
+      m: '$' + perMo.toFixed(2),
+      s: savePct,
+      h: href,
+      scr: c === 1 ? '1 screen' : c + ' screens',
+    };
+  }
+
+  renderVals() {
+    const onSel = (i) => (e) => this.setConn(i, parseInt(e.target.value, 10));
+    const c0 = this.card(0), c1 = this.card(1), c2 = this.card(2), c3 = this.card(3);
+    return {
+      p0: c0.p, m0: c0.m, v0: c0.v, h0: c0.h, scr0: c0.scr, onSel0: onSel(0),
+      p1: c1.p, m1: c1.m, v1: c1.v, h1: c1.h, s1: c1.s, scr1: c1.scr, onSel1: onSel(1),
+      p2: c2.p, m2: c2.m, v2: c2.v, h2: c2.h, s2: c2.s, scr2: c2.scr, onSel2: onSel(2),
+      p3: c3.p, m3: c3.m, v3: c3.v, h3: c3.h, s3: c3.s, scr3: c3.scr, onSel3: onSel(3),
+    };
+  }
+}
+</script>
+</body>
+</html>
