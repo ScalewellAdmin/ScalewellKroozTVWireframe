@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+</style>
+<script>
+(function(){
+  if (window.__wfTopInit) return; window.__wfTopInit = true;
+  function init(){
+    if (document.getElementById('wf-top')) return;
+    var b = document.createElement('button');
+    b.id = 'wf-top'; b.textContent = '↑ Top';
+    b.setAttribute('style','position:fixed;right:22px;bottom:22px;z-index:300;border:2px solid #222;background:#FF6A2C;color:#fff;font-family:Caveat,cursive;font-weight:700;font-size:18px;padding:10px 16px;border-radius:24px;cursor:pointer;box-shadow:3px 3px 0 rgba(34,34,34,.3);opacity:0;pointer-events:none;transition:opacity .25s;');
+    b.onclick = function(){ window.scrollTo({top:0,behavior:'smooth'}); };
+    document.body.appendChild(b);
+    var upd = function(){ var y = window.scrollY || document.documentElement.scrollTop || 0; if (y > 300){ b.style.opacity='1'; b.style.pointerEvents='auto'; } else { b.style.opacity='0'; b.style.pointerEvents='none'; } };
+    window.addEventListener('scroll', upd, {passive:true});
+    document.addEventListener('scroll', upd, {passive:true});
+    upd();
+  }
+  if (document.body) init(); else window.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+<script>
+(function(){
+  if (window.__wfRevealInit) return; window.__wfRevealInit = true;
+  function setup(){
+    var st = document.createElement('style');
+    st.textContent = '.wf-reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);} .wf-reveal.wf-in{opacity:1;transform:none;}';
+    document.head.appendChild(st);
+    var els=[];
+    function frames(){
+      var out=[];
+      [].slice.call(document.querySelectorAll('div')).forEach(function(d){
+        var cs=getComputedStyle(d);
+        if((cs.boxShadow||'').indexOf('7px 9px')>-1) out.push(d);
+        else if(cs.borderTopWidth==='7px' && cs.borderTopStyle==='solid' && cs.borderRadius!=='0px') out.push(d);
+      });
+      return out;
+    }
+    function check(){
+      var vh=window.innerHeight||document.documentElement.clientHeight;
+      for(var i=0;i<els.length;i++){
+        var el=els[i]; if(el.__in) continue;
+        var r=el.getBoundingClientRect();
+        if(r.height>0 && r.top < vh*0.90 && r.bottom > 0){ el.__in=true; el.classList.add('wf-in'); }
+      }
+    }
+    function scan(){
+      frames().forEach(function(fr){
+        [].slice.call(fr.children).forEach(function(ch){
+          if(ch.nodeType!==1 || ch.__wfr) return;
+          if(ch.offsetHeight && ch.offsetHeight<40) return;
+          ch.__wfr=true; ch.classList.add('wf-reveal'); els.push(ch);
+        });
+      });
+      check();
+    }
+    function onScroll(){ check(); }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    document.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+    scan();
+    [120,400,900,1600].forEach(function(ms){ setTimeout(check,ms); });
+    var t; var mo = new MutationObserver(function(){ clearTimeout(t); t=setTimeout(function(){ scan(); check(); },90); });
+    mo.observe(document.body,{childList:true,subtree:true});
+  }
+  if(document.body) setup(); else window.addEventListener('DOMContentLoaded',setup);
+})();
+</script>
+</helmet>
+
+<div style="min-height:100vh;background:#eceae2;font-family:'Patrick Hand',sans-serif;color:#222;">
+
+  <!-- TOP BAR -->
+  <div style="position:sticky;top:0;z-index:50;background:#f6f4ee;border-bottom:2px solid #222;padding:12px 22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+    <div style="display:flex;flex-direction:column;line-height:1;">
+      <span style="font-family:'Caveat',cursive;font-weight:700;font-size:26px;">Installation Tutorial — Wireframe</span>
+      <span style="font-size:13px;color:#777;margin-top:2px;">Low-fi · orange branding · blue notes = my notes & ideas</span>
+    </div>
+    <div style="flex:1;"></div>
+    <div style="display:flex;gap:8px;">
+      <button onClick="{{ setDesktop }}" style="{{ desktopStyle }}">Desktop</button>
+      <button onClick="{{ setMobile }}" style="{{ mobileStyle }}">Mobile</button>
+    </div>
+  </div>
+
+  <!-- ============ DESKTOP ============ -->
+  <sc-if value="{{ showDesktop }}" hint-placeholder-val="{{ true }}">
+  <div style="padding:30px 22px 80px;display:flex;flex-direction:column;align-items:center;">
+    <div style="font-family:'Caveat',cursive;font-size:24px;color:#666;margin-bottom:14px;">↓ /installation-tutorial · 1180px desktop</div>
+
+    <div style="width:1180px;max-width:100%;background:#fff;border:2px solid #222;border-radius:14px;overflow:hidden;box-shadow:7px 9px 0 rgba(34,34,34,.13);">
+      <div style="height:34px;background:#e9e7df;border-bottom:2px solid #222;display:flex;align-items:center;gap:7px;padding:0 14px;">
+        <span style="width:11px;height:11px;border-radius:50%;background:#ccc;border:1.5px solid #888;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#ccc;border:1.5px solid #888;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#ccc;border:1.5px solid #888;"></span>
+        <span style="margin-left:14px;font-size:13px;color:#888;">krooztv.net/installation-tutorial</span>
+      </div>
+
+      <!-- NAV -->
+      <div style="display:flex;align-items:center;gap:18px;padding:16px 30px;border-bottom:1.5px dashed #bbb;">
+        <div style="display:inline-flex;flex-direction:column;align-items:stretch;">
+            <div style="display:flex;gap:3px;margin:0 0 2px 9px;"><span style="width:4px;height:4px;border-radius:50%;background:#222;"></span><span style="width:4px;height:4px;border-radius:50%;background:#222;"></span></div>
+            <div style="border:2.5px solid #222;border-radius:9px;padding:4px 11px 5px;position:relative;">
+              <span style="font-family:'Clash Display','Caveat',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.02em;line-height:1;">KROOZ<span style="color:#FF6A2C;">TV</span></span>
+            </div>
+            <div style="display:flex;justify-content:center;gap:30px;margin-top:-1px;"><span style="width:8px;height:5px;background:#222;border-radius:0 0 3px 3px;"></span><span style="width:8px;height:5px;background:#222;border-radius:0 0 3px 3px;"></span></div>
+            <div style="text-align:center;font-size:9px;font-weight:700;letter-spacing:.32em;color:#222;margin-top:2px;white-space:nowrap;">TOP RATED IPTV</div>
+          </div>
+        <div style="flex:1;display:flex;gap:13px;justify-content:center;color:#888;font-size:14px;flex-wrap:wrap;"><span>Home</span><span>Free Trial</span><span>Subscription</span><span style="color:#222;text-decoration:underline;">Tutorial</span><span>Reseller</span><span>Affiliate</span><span>About</span><span>Contact</span></div>
+        <div style="border:2px solid #222;border-radius:20px;padding:7px 14px;font-size:14px;color:#888;">Client Area</div>
+      </div>
+
+      <!-- HERO -->
+      <div style="position:relative;overflow:hidden;padding:40px 30px;text-align:center;border-bottom:1.5px dashed #bbb;">
+        <div style="position:absolute;top:-90px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#FFE0CC,transparent 70%);"></div>
+        <div style="position:relative;">
+          <div style="display:inline-flex;align-items:center;gap:8px;border:2px solid #FF6A2C;color:#F2540B;border-radius:14px;padding:5px 12px;font-size:14px;margin-bottom:14px;">📲 Setup guides</div>
+          <div style="font-family:'Caveat',cursive;font-weight:700;font-size:42px;line-height:1.05;max-width:760px;margin:0 auto;">How to install KroozTV on your devices</div>
+          <div style="font-size:16px;color:#777;max-width:520px;margin:12px auto 18px;">Step-by-step guides for every device — up and running in minutes.</div>
+          <!-- search (proposed) -->
+          <div style="max-width:520px;margin:0 auto;display:flex;gap:10px;">
+            <div style="flex:1;border:2px solid #222;border-radius:24px;height:46px;display:flex;align-items:center;padding:0 16px;color:#999;font-size:15px;gap:8px;">🔍 Search your device…</div>
+            <div style="border:2px solid #F2540B;background:#FF6A2C;color:#fff;border-radius:24px;padding:0 22px;display:flex;align-items:center;font-size:15px;">Find guide</div>
+          </div>
+          <div style="font-size:12px;color:#2563EB;margin-top:8px;">↳ PROPOSED: search + filter (the current page is just a long image list)</div>
+        </div>
+      </div>
+
+      <!-- FEATURED APP -->
+      <div style="padding:28px 30px;border-bottom:1.5px dashed #bbb;background:#FFF6F1;">
+        <div style="border:2px solid #FF6A2C;border-radius:14px;background:#fff;padding:22px;display:flex;align-items:center;gap:22px;">
+          <div style="width:72px;height:72px;border-radius:18px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:34px;flex:none;">📱</div>
+          <div style="flex:1;">
+            <div style="display:inline-block;background:#FF6A2C;color:#fff;font-size:12px;padding:3px 10px;border-radius:12px;margin-bottom:6px;">★ EASIEST SETUP</div>
+            <div style="font-family:'Caveat',cursive;font-size:26px;font-weight:700;">Krooz Mate App for Firestick</div>
+            <div style="color:#888;font-size:14px;">Our own player — install once, log in, start streaming. No third-party apps.</div>
+          </div>
+          <div style="border:2px solid #F2540B;background:#FF6A2C;color:#fff;border-radius:24px;padding:12px 24px;font-size:16px;flex:none;">Get the app →</div>
+        </div>
+      </div>
+
+      <!-- FILTERS + GUIDE GRID -->
+      <div style="padding:36px 30px;border-bottom:1.5px dashed #bbb;">
+        <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:6px;">
+          <div style="font-family:'Caveat',cursive;font-size:30px;font-weight:700;">Choose your device</div>
+          <span style="color:#888;font-size:14px;">10 guides</span>
+        </div>
+        <div style="font-size:13px;color:#2563EB;margin-bottom:16px;">↳ PROPOSED filter chips:</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;">
+          <span style="border:2px solid #FF6A2C;background:#FF6A2C;color:#fff;border-radius:20px;padding:7px 14px;font-size:14px;">All</span>
+          <span style="border:2px solid #222;border-radius:20px;padding:7px 14px;font-size:14px;">🔥 Streaming sticks</span>
+          <span style="border:2px solid #222;border-radius:20px;padding:7px 14px;font-size:14px;">📺 Smart TV</span>
+          <span style="border:2px solid #222;border-radius:20px;padding:7px 14px;font-size:14px;">📦 Boxes</span>
+          <span style="border:2px solid #222;border-radius:20px;padding:7px 14px;font-size:14px;">📱 Mobile</span>
+          <span style="border:2px solid #222;border-radius:20px;padding:7px 14px;font-size:14px;">💻 PC</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">🔥</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Amazon Firestick</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">🤖</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Android TV</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">🍎</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">iOS / iPhone &amp; iPad</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">📺</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Samsung &amp; LG TV</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">▶️</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">TiviMate Player</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">📦</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Formuler Boxes</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">🛰️</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Enigma2 / Dreambox / Vu+</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">🟣</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Roku</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">📡</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">MAG Box</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+          <div style="border:2px solid #222;border-radius:12px;padding:18px;"><div style="width:50px;height:50px;border-radius:14px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;">🪟</div><div style="font-family:'Caveat',cursive;font-size:20px;font-weight:700;">Windows 11 PC</div><div style="color:#F2540B;font-size:14px;margin-top:6px;">View guide →</div></div>
+        </div>
+      </div>
+
+      <!-- WHAT IS KROOZTV -->
+      <div style="padding:34px 30px;background:#f3f1ea;border-bottom:1.5px dashed #bbb;">
+        <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;">
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:28px;font-weight:700;">📺 What is KroozTV?</div>
+            <div style="color:#777;font-size:15px;margin-top:8px;line-height:1.55;">A leading IPTV provider with thousands of live channels, movies &amp; on-demand content worldwide — HD quality, low buffering, a cost-effective alternative to cable.</div>
+          </div>
+          <div style="border:2px dashed #999;border-radius:12px;aspect-ratio:16/10;background:linear-gradient(135deg,transparent 49%,#d6d3ca 49.5%,#d6d3ca 50.5%,transparent 51%),linear-gradient(45deg,transparent 49%,#d6d3ca 49.5%,#d6d3ca 50.5%,transparent 51%);display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;">IMG · app on devices</div>
+        </div>
+      </div>
+
+      <!-- SUPPORTED DEVICES STRIP -->
+      <div style="padding:32px 30px;border-bottom:1.5px dashed #bbb;">
+        <div style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;margin-bottom:4px;">✅ Supported devices &amp; players</div>
+        <div style="font-size:13px;color:#2563EB;margin-bottom:14px;">full compatibility list</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">Firestick / Fire TV</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">Android TV &amp; boxes</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">iPhone / iPad</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">Samsung / LG</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">Windows PC</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">MAG</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">Formuler</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">Enigma2 / Dreambox / Vu+</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">Dreamlink (DOL)</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">TiviMate</span>
+          <span style="border:2px solid #222;border-radius:18px;padding:7px 13px;font-size:14px;">DuplexPlay &amp; more</span>
+        </div>
+      </div>
+
+      <!-- HELP BAND (aurora) -->
+      <div style="position:relative;overflow:hidden;padding:40px 30px;text-align:center;background:#FFF6F1;border-bottom:1.5px dashed #bbb;">
+        <div style="position:absolute;top:-30px;left:16%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#FFD0B8,transparent 70%);"></div>
+        <div style="position:absolute;bottom:-60px;right:18%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#FFE0CC,transparent 70%);"></div>
+        <div style="position:absolute;top:8px;right:16px;font-family:'Caveat',cursive;font-size:14px;color:#2563EB;">aurora motif</div>
+        <div style="position:relative;">
+          <div style="font-family:'Caveat',cursive;font-size:30px;font-weight:700;">Stuck? We're happy to help 💬</div>
+          <div style="color:#777;font-size:15px;margin:8px 0 16px;">Live chat support, 24/7 — we'll get you set up in minutes.</div>
+          <div style="display:inline-block;border:2px solid #F2540B;background:#FF6A2C;color:#fff;border-radius:24px;padding:12px 24px;font-size:16px;">Chat with us</div>
+          <div style="font-size:12px;color:#2563EB;margin-top:10px;">↳ opens Crisp live chat</div>
+        </div>
+      </div>
+
+      <!-- BOTTOM CTAS -->
+      <div style="padding:34px 30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;border-bottom:1.5px dashed #bbb;">
+        <div style="border:2px solid #F2540B;background:#FF6A2C;color:#fff;border-radius:24px;padding:12px 24px;font-size:16px;">Get your subscription</div>
+        <div style="border:2px solid #222;border-radius:24px;padding:12px 24px;font-size:16px;">Start free trial</div>
+        <div style="border:2px solid #222;border-radius:24px;padding:12px 24px;font-size:16px;">Become a reseller</div>
+      </div>
+
+      <!-- FOOTER -->
+      <div style="background:#1a1a1a;color:#cfcfd6;padding:40px 30px 26px;">
+        <div style="display:flex;justify-content:center;margin-bottom:22px;">
+          <div style="display:inline-flex;flex-direction:column;align-items:stretch;">
+            <div style="display:flex;gap:4px;margin:0 0 3px 12px;"><span style="width:5px;height:5px;border-radius:50%;background:#fff;"></span><span style="width:5px;height:5px;border-radius:50%;background:#fff;"></span></div>
+            <div style="border:3px solid #fff;border-radius:12px;padding:5px 15px 6px;"><span style="font-family:'Caveat',cursive;font-weight:700;font-size:30px;line-height:1;color:#fff;">KROOZ<span style="color:#FF6A2C;">TV</span></span></div>
+            <div style="display:flex;justify-content:center;gap:38px;margin-top:-1px;"><span style="width:10px;height:6px;background:#fff;border-radius:0 0 3px 3px;"></span><span style="width:10px;height:6px;background:#fff;border-radius:0 0 3px 3px;"></span></div>
+            <div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:.3em;color:#fff;margin-top:3px;">TOP RATED IPTV</div>
+          </div>
+        </div>
+        <div style="height:1.5px;background:#3a3a42;margin-bottom:28px;"></div>
+        <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px;max-width:1000px;margin:0 auto;font-size:15px;color:#9A9AA2;">
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;"><span style="width:46px;height:46px;border-radius:50%;border:2px solid #FF6A2C;display:flex;align-items:center;justify-content:center;font-size:22px;">🎧</span><span style="font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:#fff;">Call us 24/7</span></div>
+            <div style="font-weight:700;color:#fff;margin-bottom:6px;">Address <span style="color:#FF6A2C;">info</span></div>
+            <div style="line-height:1.5;">362 Ridgewood Dr, Soldotna,<br>Alaska 99669, USA</div>
+          </div>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:16px;">Information</div>
+            <div style="margin-bottom:11px;cursor:pointer;">Home</div><div style="margin-bottom:11px;cursor:pointer;">Reseller IPTV</div><div style="margin-bottom:11px;cursor:pointer;">IPTV Subscription</div><div style="margin-bottom:11px;cursor:pointer;">About Us</div><div style="margin-bottom:11px;cursor:pointer;">Contact Us</div><div style="margin-bottom:11px;cursor:pointer;">Free IPTV Trial</div>
+          </div>
+          <div>
+            <div style="font-family:'Caveat',cursive;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:16px;">Importants</div>
+            <div style="margin-bottom:11px;cursor:pointer;">Privacy Policy</div><div style="margin-bottom:11px;cursor:pointer;">Terms of Service</div><div style="margin-bottom:11px;cursor:pointer;">Cancellation Policy</div><div style="margin-bottom:11px;cursor:pointer;">Krooz TV Official</div><div style="margin-bottom:11px;cursor:pointer;">Installation Tutorial</div><div style="margin-bottom:11px;cursor:pointer;">IPTV Affiliate Program</div><div style="margin-bottom:11px;cursor:pointer;">DMCA Policy</div>
+          </div>
+        </div>
+        <div style="text-align:center;color:#71717a;font-size:13px;margin-top:30px;border-top:1px solid #2a2a30;padding-top:18px;max-width:1000px;margin-left:auto;margin-right:auto;">© 2026 KroozTV · Premium IPTV streaming worldwide · 24/7 live chat support</div>
+      </div>
+
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ============ MOBILE ============ -->
+  <sc-if value="{{ showMobile }}" hint-placeholder-val="{{ true }}">
+  <div style="padding:30px 22px 80px;display:flex;flex-direction:column;align-items:center;">
+    <div style="font-family:'Caveat',cursive;font-size:24px;color:#666;margin-bottom:14px;">↓ mobile · 390px</div>
+    <div style="width:390px;max-width:100%;background:#fff;border:7px solid #222;border-radius:38px;overflow:hidden;box-shadow:7px 9px 0 rgba(34,34,34,.13);">
+      <div style="padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1.5px dashed #bbb;">
+        <div style="display:inline-flex;flex-direction:column;align-items:stretch;"><div style="border:2.5px solid #222;border-radius:8px;padding:3px 9px 4px;"><span style="font-family:'Clash Display','Caveat',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;line-height:1;">KROOZ<span style="color:#FF6A2C;">TV</span></span></div><div style="text-align:center;font-size:8px;font-weight:700;letter-spacing:.28em;color:#222;margin-top:2px;white-space:nowrap;">TOP RATED IPTV</div></div><span style="font-size:24px;color:#888;">☰</span>
+      </div>
+      <!-- hero + search -->
+      <div style="position:relative;overflow:hidden;padding:24px 18px;text-align:center;border-bottom:1.5px dashed #bbb;">
+        <div style="position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,#FFE0CC,transparent 70%);"></div>
+        <div style="position:relative;">
+          <div style="font-family:'Caveat',cursive;font-weight:700;font-size:28px;line-height:1.1;">How to install KroozTV on your devices</div>
+          <div style="color:#777;font-size:14px;margin:10px 0 14px;">Step-by-step guides for every device.</div>
+          <div style="border:2px solid #222;border-radius:22px;height:44px;display:flex;align-items:center;padding:0 14px;color:#999;font-size:14px;gap:8px;">🔍 Search your device…</div>
+        </div>
+      </div>
+      <!-- featured app -->
+      <div style="padding:18px;border-bottom:1.5px dashed #bbb;background:#FFF6F1;">
+        <div style="border:2px solid #FF6A2C;border-radius:12px;background:#fff;padding:14px;display:flex;align-items:center;gap:12px;">
+          <div style="width:48px;height:48px;border-radius:12px;border:2px solid #222;background:#FFE8DA;display:flex;align-items:center;justify-content:center;font-size:24px;flex:none;">📱</div>
+          <div style="flex:1;"><div style="font-family:'Caveat',cursive;font-size:18px;font-weight:700;">Krooz Mate App</div><div style="color:#888;font-size:12px;">Easiest Firestick setup</div></div>
+          <div style="border:2px solid #F2540B;background:#FF6A2C;color:#fff;border-radius:18px;padding:8px 12px;font-size:13px;flex:none;">Get →</div>
+        </div>
+      </div>
+      <!-- filters -->
+      <div style="padding:16px 18px 0;display:flex;gap:8px;overflow:hidden;">
+        <span style="border:2px solid #FF6A2C;background:#FF6A2C;color:#fff;border-radius:18px;padding:6px 12px;font-size:13px;white-space:nowrap;">All</span>
+        <span style="border:2px solid #222;border-radius:18px;padding:6px 12px;font-size:13px;white-space:nowrap;">🔥 Sticks</span>
+        <span style="border:2px solid #222;border-radius:18px;padding:6px 12px;font-size:13px;white-space:nowrap;">📺 Smart TV</span>
+        <span style="border:2px solid #222;border-radius:18px;padding:6px 12px;font-size:13px;white-space:nowrap;">📦 Boxes</span>
+      </div>
+      <!-- guide grid -->
+      <div style="padding:16px 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="border:2px solid #222;border-radius:10px;padding:12px;"><div style="font-size:22px;">🔥</div><div style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;">Firestick</div><div style="color:#F2540B;font-size:12px;">View →</div></div>
+        <div style="border:2px solid #222;border-radius:10px;padding:12px;"><div style="font-size:22px;">🤖</div><div style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;">Android TV</div><div style="color:#F2540B;font-size:12px;">View →</div></div>
+        <div style="border:2px solid #222;border-radius:10px;padding:12px;"><div style="font-size:22px;">🍎</div><div style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;">iOS</div><div style="color:#F2540B;font-size:12px;">View →</div></div>
+        <div style="border:2px solid #222;border-radius:10px;padding:12px;"><div style="font-size:22px;">📺</div><div style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;">Samsung / LG</div><div style="color:#F2540B;font-size:12px;">View →</div></div>
+        <div style="border:2px solid #222;border-radius:10px;padding:12px;"><div style="font-size:22px;">📡</div><div style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;">MAG</div><div style="color:#F2540B;font-size:12px;">View →</div></div>
+        <div style="border:2px solid #222;border-radius:10px;padding:12px;"><div style="font-size:22px;">🪟</div><div style="font-family:'Caveat',cursive;font-size:16px;font-weight:700;">Windows 11</div><div style="color:#F2540B;font-size:12px;">View →</div></div>
+      </div>
+      <!-- help band -->
+      <div style="padding:24px 18px;text-align:center;background:#FFF6F1;border-top:1.5px dashed #bbb;">
+        <div style="font-family:'Caveat',cursive;font-size:22px;font-weight:700;">Stuck? We're happy to help 💬</div>
+        <div style="border:2px solid #F2540B;background:#FF6A2C;color:#fff;border-radius:22px;padding:10px;font-size:15px;margin-top:12px;">Chat with us</div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'desktop' };
+  renderVals() {
+    const t = this.state.tab;
+    const set = (tab) => () => { this.setState({ tab }); try { window.scrollTo(0, 0); } catch (e) {} };
+    const base = { padding: '9px 16px', border: '2px solid #222', background: '#fff', fontFamily: "'Caveat', cursive", fontWeight: 700, fontSize: '17px', cursor: 'pointer', borderRadius: '9px', color: '#222', lineHeight: 1 };
+    const active = Object.assign({}, base, { background: '#222', color: '#fff' });
+    return {
+      setDesktop: set('desktop'), setMobile: set('mobile'),
+      desktopStyle: t === 'desktop' ? active : base,
+      mobileStyle: t === 'mobile' ? active : base,
+      showDesktop: t === 'desktop', showMobile: t === 'mobile',
+    };
+  }
+}
+</script>
+</body>
+</html>
